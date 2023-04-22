@@ -54,3 +54,19 @@ for (let i = 0; i < 10; i++) {
   });
 }
 ```
+
+##### const
+
+`const` was introduced in ES2015 and is the new preferred default way to declare all variables if they won't be reassigned later, even for objects that will be mutated (as long as the reference to the object does not change). It is block-scoped and cannot be reassigned.
+
+```js
+const myObject = {};
+myObject.prop = "hello!"; // No error
+myObject = "hello"; // Error
+```
+
+- All declarations are hoisted to the top of their scope.
+- However, with `let` and `const` there is a concept called the temporal dead zone (TDZ). While the declarations are still hoisted, there is a period between entering scope and being declared where they cannot be accessed.
+- Show a common issue with using `var` and how `let` can solve it, as well as a solution that keeps `var`.
+- `var` should be avoided whenever possible and prefer `const` as the default declaration statement for all variables unless they will be reassigned later, then use `let` if so.
+- The `let` and `const` variables are not accessible before they are initialized with some value, and the phase between the starting of the execution of block in which the `let` or `const` variable is declared till that variable is being initialized is called Temporal Dead Zone for the variable.
