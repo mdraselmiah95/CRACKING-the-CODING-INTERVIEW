@@ -12,7 +12,8 @@ In JavaScript, scope refers to the accessibility or visibility of variables, fun
 
 shadowing occurs when a variable declared in a certain scope (e.g. a local variable) has the same name as a variable in an outer scope (e.g. a global variable)
 
-```function test() {
+```js
+function test() {
   let a = "Hello";
 
   if (true) {
@@ -25,7 +26,8 @@ shadowing occurs when a variable declared in a certain scope (e.g. a local varia
 test();
 ```
 
-```function testTwo() {
+```js
+function testTwo() {
   var a = "Hello";
   let b = "Bye";
 
