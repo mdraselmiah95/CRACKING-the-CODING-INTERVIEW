@@ -10,23 +10,25 @@
 
 # Scope and Closure
 
-We have 3 types of variables in JavaScript: `var`, `let`, and `const`.
+- We have 3 types of variables in JavaScript: `var`, `let`, and `const`.
 
-⚠️⚠️ `var` is the old one and should not be used in any case now as it has many issues with creating scopes.
+- ☠️☠️ `var` is the old one and should not be used in any case now as it has many issues with creating scopes.
 
-Why is it still there?
+  - Why is it still there?
 
-Also, there are 4 kinds of scope in JavaScript: Block Scope, Global Scope, Function Scope, Module Scope.
+- Also, there are 4 kinds of scope in JavaScript - _Block Scope, Global Scope, Function Scope, Module Scope_
 
 ## Block scope & Global Scope
 
-The scope is the current context of execution in which values and expressions are "visible" (MDN).
+The scope is the current context of execution in which values and expressions are "visible" [(MDN)](https://developer.mozilla.org/en-US/docs/Glossary/Scope).
 
 **Global Scope:** Any variable/expression written outside - i.e. not inside any functions, blocks, etc. This is shared across files.
 
 `let`
 
-This creates a block scope. Re-declaration is NOT allowed (in the same scope), but re-assignment is allowed.
+- This creates a block scope.
+- _Re-declaration_ is NOT allowed (in the same scope)
+- _Re-assignment_ is allowed.
 
 ```javascript
 {
@@ -47,7 +49,7 @@ This creates a block scope. Re-declaration is NOT allowed (in the same scope), b
 console.log(x); // Error in Global Scope
 ```
 
-Temporal Dead Zone (TDZ): the area in which a variable is not accessible. Temporal because it depends on the time of execution, not position.
+**Temporal Dead Zone** (TDZ): the area in which a variable is not accessible. Temporal because it depends on the time of execution, not position.
 
 ```javascript
 {
@@ -61,7 +63,10 @@ Temporal Dead Zone (TDZ): the area in which a variable is not accessible. Tempor
 
 `const`
 
-This creates a block scope. Re-declaration is NOT allowed, and re-assignment is NOT allowed. The variable must be assigned at declaration time.
+- This creates a block scope.
+- _Re-declaration_ is NOT allowed,
+- _Re-assignment_ is NOT allowed.
+- The variable must be assigned at declaration time.
 
 ```javascript
 {
@@ -89,7 +94,9 @@ let x = 0; // shadowed variable
 
 `var`
 
-It doesn't have any block scope and can be re-declared. It only has function scope. `var` variables are hoisted, so they can be used before the declaration.
+- It doesn't have any block scope and can be _re-declared_.
+- It only has _function scope_.
+- `var` variables are _hoisted_, so they can be used before the declaration.
 
 ```javascript
 var x = 1;
