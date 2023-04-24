@@ -10,6 +10,8 @@
 
 # Scope and Closure
 
+**The scope is the current context of execution in which values and expressions are "visible" or can be referenced.**
+
 - We have 3 types of variables in JavaScript: `var`, `let`, and `const`.
 
 - ☠️☠️ `var` is the old one and should not be used in any case now as it has many issues with creating scopes.
@@ -26,7 +28,7 @@ The scope is the current context of execution in which values and expressions ar
 
 `let`
 
-- This creates a block scope.
+- This creates a _block scope_.
 - _Re-declaration_ is NOT allowed (in the same scope)
 - _Re-assignment_ is allowed.
 
@@ -124,4 +126,157 @@ for (var i = 0; i < 5; i++) {
 } // prints 5,5,5,5,5
 ```
 
-# Module scope
+## Module Scope
+
+In modern JavaScript, a file can be considered as a module, where we use _export_ and _import_ syntax to use variables across files. We can use the following syntax to import and export variables:
+
+```js
+<script src="index.js" type="module"></script>
+```
+
+```js
+export { someVar, someFunc };
+```
+
+```js
+import { someVar } from "./app.js";
+```
+
+```javascript
+// app.js
+export const someVar = "hello";
+export function someFunc() {
+  /* function body */
+}
+
+// index.js
+import { someVar } from "./app.js";
+```
+
+**global Object**
+
+- The global Object is the variable `window` in case of browser. This helps you to use variables across the scopes. Also, it is the this value for global functions
+
+  - window.alert
+  - window.Promise
+
+- In non-browser environment, `window` doesn't exist. but other global objects exist.
+- `var` affects this global object, also _`function`_ declarations.
+
+In a browser environment, the global object is referred to as `window`. We can use it to access variables across scopes:
+
+```javascript
+window.alert("Hello!"); // shows a message box with the text "Hello!"
+window.Promise; // Promise is a constructor function available in the browser environment
+```
+
+```javascript
+function sayHi() {
+  console.log(this); // this will refer to the global object
+}
+
+sayHi(); // logs the global object (e.g. window in a browser environment)
+
+("use strict");
+
+function sayHi() {
+  console.log(window); // this will throw an error in strict mode
+}
+```
+
+## Function Scope
+
+- it is created upon execution a function
+- A function creates a new scope upon execution. Every time a function is called, a new function scope is created:
+
+```javascript
+function sayHi(name) {
+  return name;
+}
+
+sayHi(); // this call will create a function scope
+
+sayHi(); // this call will create another function scope
+```
+
+**Lexical Environment**
+
+- Every variable in JavaScript (within global, block, or function) has a reference to an object-like data called the _Lexical Environment_. This object serves as the basis of search for the value of the variable:
+
+```javascript
+let name = "john";
+console.log(name); // logs "john"
+```
+
+We can also create a function with a local variable and log it to the console:
+
+```javascript
+// Lexical Environment (Global variable):
+// [outer]: null
+// name: "john"
+
+let name = "john";
+
+function sayHi() {
+  let greet = "hi";
+  console.log(greet);
+}
+
+sayHi(); // logs "hi"
+console.log(name, sayHi);
+
+// Lexical Environment (Function scope):
+// [outer]: Global lexical environment
+// greet: "hi"
+```
+
+**Lexical Environment (functions)**
+
+```js
+let name = "john";
+
+function sayHi() {
+  let greet = "hi";
+  console.log(name);
+}
+
+sayHi();
+```
+
+## Hoisting
+
+The movement of variable declaration to top of scope - before execution
+
+- _function declarations_ are properly hoisted (value accessible)
+- _var_ is hoisted.
+
+```js
+let name = "john";
+
+sayHi(); // valid
+
+function sayHi() {
+  let greet = "hi";
+  console.log(name);
+}
+
+sayHello(); // error
+let sayHello = function () {
+  console.log(name);
+};
+```
+
+**Temporal Dead Zone**(TDZ) :
+
+```js
+let x = 1;
+
+{
+  console.log(x); // Reference error
+  let x = 2;
+}
+```
+
+## Closures
+
+- we can create nested functions in JavaScript
