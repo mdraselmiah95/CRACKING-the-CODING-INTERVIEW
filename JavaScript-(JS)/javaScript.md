@@ -277,6 +277,6 @@ let x = 1;
 }
 ```
 
-## Closures
+## Closures 00:42:46
 
 - we can create nested functions in JavaScript
