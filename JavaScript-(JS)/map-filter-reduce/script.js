@@ -55,4 +55,6 @@ const sum = nums.newReduce((acc, curr, i, arr) => {
   return acc + curr;
 }, 0);
 
-console.log(sum);
+// console.log(sum);
+
+// Difference between map vs forEach ? 15:51

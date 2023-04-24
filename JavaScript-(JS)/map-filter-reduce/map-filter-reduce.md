@@ -57,3 +57,16 @@ const output = arr.reduce(function (accumulator, currentIdx) {
 });
 console.log(output);
 ```
+
+**Difference between map vs forEach ?**
+
+- `map()` and `forEach()` is the returning value. The forEach() method returns undefined and map() returns a new array with the transformed elements
+
+```js
+const myAwesomeArray = [1, 2, 3, 4, 5];
+myAwesomeArray.forEach((x) => x * x);
+//>>>>>>>>>>>>>return value: undefined
+
+myAwesomeArray.map((x) => x * x);
+//>>>>>>>>>>>>>return value: [1, 4, 9, 16, 25]
+```
