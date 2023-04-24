@@ -8,8 +8,8 @@ const mapResult = arr.map((arr) => {
   return arr + 2;
 });
 
-const forEachResult = arr.forEach((arr) => {
-  return arr + 2;
+const forEachResult = arr.forEach((ar, i) => {
+  arr[i] = ar + 3;
 });
 
-console.log(mapResult, forEachResult);
+console.log(mapResult, forEachResult, arr);

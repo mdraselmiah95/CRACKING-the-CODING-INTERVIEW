@@ -70,3 +70,30 @@ myAwesomeArray.forEach((x) => x * x);
 myAwesomeArray.map((x) => x * x);
 //>>>>>>>>>>>>>return value: [1, 4, 9, 16, 25]
 ```
+
+- `forEach()` — executes a provided function once for each array element.
+
+- `map()` — creates a new array with the results of calling a provided function on every element in the calling array.
+
+  - Well, the `forEach() `method doesn’t actually return anything (undefined). It simply calls a provided function on each element in your array. This callback is allowed to mutate the calling array.
+  - Meanwhile, the`map() `method will also call a provided function on every element in the array. The difference is that `map()` utilizes return values and actually returns a new Array of the same size.
+
+```js
+const array1 = [1, 2, 3];
+
+const func = (arr) => {
+  const result = arr.forEach((i) => i * 2);
+  return result;
+};
+func(); // Undefined
+```
+
+**Mutation**
+
+- `forEach()` affects and changes our original Array, whereas `map()` returns an entirely new Array — thus leaving the original array unchanged.
+
+- The `map()` method returns an entirely new array with transformed elements and the same amount of data. In the case of `forEach()`, even if it returns undefined, it will mutate the original array with the callback.
+
+- Therefore, we see clearly that `map()` relies on immutability and `forEach()` is a mutator method.
+
+- `map()` may be preferable if you favor functional programming.
