@@ -32,3 +32,28 @@ var new_array = arr.filter(function callback(element, index, array) {
     // Return true or false
 }[, thisArg])
 ```
+
+**Reduce**
+
+The callback argument is a function that will be called once for every item in the array. This function takes four arguments, but often only the first two are used.
+
+- accumulator - the returned value of the previous iteration
+- currentValue - the current item in the array
+- index - the index of the current item [optional]
+- array - the original array on which reduce was called [optional]
+
+The initialValue argument is optional. If provided, it will be used as the initial accumulator value in the first call to the callback function.
+
+```js
+arr.reduce(callback[, initialValue])
+```
+
+```js
+const arr = [1, 2, 3, 4, 5];
+
+const output = arr.reduce(function (accumulator, currentIdx) {
+  acc += curr;
+  return acc;
+});
+console.log(output);
+```

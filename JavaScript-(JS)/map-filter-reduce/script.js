@@ -16,4 +16,12 @@ const moreThanThree = nums.filter((num, i, arr) => {
   return num > 3;
 });
 
-console.log(moreThanThree);
+// console.log(moreThanThree);
+
+// What is Reduce
+
+const sum = nums.reduce((acc, curr, i, arr) => {
+  return acc + curr;
+}, 0);
+
+console.log(sum);
