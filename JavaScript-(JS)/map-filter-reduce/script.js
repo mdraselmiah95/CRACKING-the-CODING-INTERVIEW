@@ -36,4 +36,23 @@ const biggerNum = nums.newFilter((num) => {
   return num > 3;
 });
 
-console.log(biggerNum);
+// console.log(biggerNum);
+
+// Polyfill for Reduce()
+
+//arr.reduce((acc,curr,i,arr)=>{},initialValue)
+
+Array.prototype.newReduce = function (cb, initialValue) {
+  let accumulator = initialValue;
+
+  for (let i = 0; i < this.length; i++) {
+    accumulator = accumulator ? cb(accumulator, this[i], i, this) : this[i];
+  }
+  return accumulator;
+};
+
+const sum = nums.newReduce((acc, curr, i, arr) => {
+  return acc + curr;
+}, 0);
+
+console.log(sum);
