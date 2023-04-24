@@ -1,27 +1,39 @@
 // map filter and reduce
 
-// What is Map() ?
+// Polyfill for Map()
+
+//Array.map((num,i,arr)=>{})
+
+Array.prototype.newMap = function (cb) {
+  let temp = [];
+  for (let i = 0; i < this.length; i++) {
+    temp.push(cb(this[i], i, this));
+  }
+  return temp;
+};
 
 const nums = [1, 2, 4, 5, 7, 8, 9];
 
-const multiply = nums.map((num, i, arr) => {
-  return num * 3 + 1;
+const multiply = nums.newMap((num, i, arr) => {
+  return num * 3 + i;
 });
 
 // console.log(multiply);
 
-// what is filter() ?
+// Polyfill for Filter()
 
-const moreThanThree = nums.filter((num, i, arr) => {
+Array.prototype.newFilter = function (cb) {
+  let temp = [];
+  for (let i = 0; i < this.length; i++) {
+    if (cb(this[i], i, this)) {
+      temp.push(this[i]);
+    }
+  }
+  return temp;
+};
+
+const biggerNum = nums.newFilter((num) => {
   return num > 3;
 });
 
-// console.log(moreThanThree);
-
-// What is Reduce
-
-const sum = nums.reduce((acc, curr, i, arr) => {
-  return acc + curr;
-}, 0);
-
-console.log(sum);
+console.log(biggerNum);
