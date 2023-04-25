@@ -280,3 +280,58 @@ let x = 1;
 ## Closures 00:42:46
 
 - we can create nested functions in JavaScript
+
+```js
+function createUser(name) {
+  let greeting = "Hi ";
+  function greet() {
+    return greeting + name + " is Created";
+  }
+  return greet();
+}
+
+createUser("john"); // Hi john is created;
+```
+
+- Now more useful work is if we can return the greet function itself.
+
+```js
+function createUser(name) {
+  let greeting = "Hi ";
+  function greet() {
+    return greeting + name + " is Created";
+  }
+  return greet; // returned just definition of function
+}
+
+let welcomeJohn = createUser("john");
+welcomeJohn(); // // Hi john is created;
+```
+
+- This is **Closure**
+  - _welcomeJohn_ function definition has access
+    - to outer **params** ( _name_ ) which came for _createUser_ function
+    - also any other "variables" declared inside _createUser_ will also be accessible to this _welcomeJohn_
+
+Example
+
+```js
+function initCounter() {
+  let count = 0;
+  return function () {
+    count++;
+  };
+}
+
+let counter = initCounter();
+counter(); // 0
+counter(); // 1
+
+let counter1 = initCounter();
+counter1(); // 0
+counter1(); // 1
+```
+
+**NOTE :** so whenever you have a function which wants to preserve a value over many calls - it's a time for closure.
+
+Lexical Environment
