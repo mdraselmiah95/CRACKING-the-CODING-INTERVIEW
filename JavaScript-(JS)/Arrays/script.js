@@ -59,4 +59,26 @@ const num1 = [1, 2, 3];
 const num2 = [4, 5, 6];
 
 const finalNum = [...num1, ...num2];
-console.log(finalNum);
+
+function sum1(...numbers) {
+  return numbers;
+}
+// console.log(sum1(num1, num2));
+
+// More Array Methods
+const newArr = num1.concat(num2);
+
+let arr2 = ["apple", "banana", "mango"];
+
+// const newArr2 = arr2.slice(0, 2);
+// const newArr2 = arr2.slice(0, 2);
+// const newArr2 = arr2.splice(2, 1, "sweet");
+
+// console.log(arr2);
+
+// console.log(newArr2);
+
+const fruits = ["Banana", "Orange", "Apple", "Mango"];
+
+let newFruits = fruits.splice(2, 0, "Lemon", "Kiwi");
+// console.log(newFruits);
