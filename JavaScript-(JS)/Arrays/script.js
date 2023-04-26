@@ -73,12 +73,25 @@ let arr2 = ["apple", "banana", "mango"];
 // const newArr2 = arr2.slice(0, 2);
 // const newArr2 = arr2.slice(0, 2);
 // const newArr2 = arr2.splice(2, 1, "sweet");
+// let newFruits = fruits.splice(2, 0, "Lemon", "Kiwi");
+// let newFruits = fruits.fill(0);
+// let newFruits = fruits.findIndex((item) => item === "Orange");
 
 // console.log(arr2);
 
 // console.log(newArr2);
 
-const fruits = ["Banana", "Orange", "Apple", "Mango"];
+const arr3 = [1, 2, 7, 9, [3, 4, [5, 6]]];
+const flattenArr = arr3.flat(2);
 
-let newFruits = fruits.splice(2, 0, "Lemon", "Kiwi");
-// console.log(newFruits);
+console.log(flattenArr);
+
+const reverseArr = flattenArr.reverse();
+
+const sortedArr = flattenArr.sort((a, b) => {
+  return a - b;
+});
+
+// console.log(sortedArr);
+
+// console.log(reverseArr); 30
