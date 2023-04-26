@@ -52,4 +52,11 @@ const findNum = numbers.find((num) => {
   return num > 4;
 });
 
-console.log(findNum);
+// console.log(findNum);
+
+// Spread and Rest Operators
+const num1 = [1, 2, 3];
+const num2 = [4, 5, 6];
+
+const finalNum = [...num1, ...num2];
+console.log(finalNum);
