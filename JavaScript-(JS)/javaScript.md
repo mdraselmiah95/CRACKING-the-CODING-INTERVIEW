@@ -335,3 +335,70 @@ counter1(); // 1
 **NOTE :** so whenever you have a function which wants to preserve a value over many calls - it's a time for closure.
 
 Lexical Environment
+
+```js
+function init() {
+  let name = "john";
+
+  function greet() {
+    console.log(name);
+  }
+  return greet;
+}
+
+let sayHi = init();
+
+sayHi();
+```
+
+Real life example 1
+
+```js
+function initCounter(id) {
+  let count = 0;
+  return function () {
+    count++;
+    document.getElementById(id).innerText = count;
+  };
+}
+let count = 10;
+let counter1 = initCounter("btnCount1");
+let counter2 = initCounter("btnCount2");
+
+// here `btn1` and `btn2` are id of HTML buttons.
+```
+
+```js
+<button onclick="counter1()">1</button>
+<p id="btnCount1"></p>
+<button onclick="counter2()">2</button>
+<p id="btnCount2"></p>
+```
+
+Real life example 2
+
+```js
+function initAddString(inputId, outputId) {
+  let str = "";
+  return function () {
+    str += " " + document.getElementById(inputId).value;
+    document.getElementById(inputId).value = "";
+    document.getElementById(outputId).innerText = str;
+  };
+}
+
+let strAdder1 = initAddString("text1", "text-output1");
+let strAdder2 = initAddString("text2", "text-output2");
+```
+
+```js
+<input type="text" id="text1">
+<button onclick="strAdder1()">Add String</button>
+<p id="text-output1"></p>
+
+<input type="text" id="text2">
+<button onclick="strAdder2()">Add String</button>
+<p id="text-output2"></p>
+```
+
+## IIFE - Immediately Invoked Function Expression
