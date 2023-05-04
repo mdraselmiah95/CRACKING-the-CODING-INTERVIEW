@@ -17,3 +17,15 @@ const maxDepth = (root) => {
   if (root === null) return 0;
   return 1 + Math.max(maxDepth(root.left), maxDepth(root.right));
 };
+
+const maxDepth1 = (root) => {
+  let maxDepth = 0;
+  let search = (node, level) => {
+    if (node === null) return;
+    if (level > maxDepth) maxDepth = level;
+    search(node.left, level + 1);
+    search(node.right, level + 1);
+  };
+  search(root, 1);
+  return maxDepth1;
+};
