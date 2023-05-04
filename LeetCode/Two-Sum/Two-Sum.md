@@ -28,7 +28,7 @@ Input: nums = [3,3], target = 6
 Output: [0,1]
 ```
 
-### Solution:
+### Solution 1:
 
 ```js
 const twoSum = (nums, target) => {
@@ -41,6 +41,8 @@ const twoSum = (nums, target) => {
   }
 };
 ```
+
+### Solution 2:
 
 ```js
 /**
@@ -62,6 +64,8 @@ const twoSum1 = (nums, target) => {
   }
 };
 ```
+
+### Solution 3:
 
 ```js
 /**
