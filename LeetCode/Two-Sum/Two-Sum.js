@@ -58,9 +58,24 @@ const twoSum1 = (nums, target) => {
   }
 };
 
-const nums1 = [8, 3, 10, 7, 2, 5, 4];
+const nums1 = [1, 5, 7, 2];
 const target1 = 9;
 
-const resultTwo = twoSum1(nums, target);
+const resultTwo = twoSum1(nums1, target1);
 
 console.log(resultTwo);
+
+const twoSum2 = (nums, target) => {
+  let result = {};
+  for (let [index, num] of nums.entries()) {
+    if (result[num] !== undefined) return [result[num], index];
+    result[target - num] = index;
+  }
+};
+
+const nums2 = [2, 7, 11, 15];
+const target2 = 9;
+
+const resultThree = twoSum1(nums2, target2);
+
+console.log(resultThree);

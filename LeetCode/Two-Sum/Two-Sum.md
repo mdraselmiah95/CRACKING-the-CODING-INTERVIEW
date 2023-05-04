@@ -41,3 +41,40 @@ const twoSum = (nums, target) => {
   }
 };
 ```
+
+```js
+/**
+ * @param {number[]} nums
+ * @param {number} target
+ * @return {number[]}
+ */
+
+const twoSum1 = (nums, target) => {
+  const map = [];
+  for (let i = 0; i < nums.length; i++) {
+    const value = nums[i];
+    const pair = target - value;
+    if (map[pair] !== undefined) {
+      return [map[pair], i];
+    } else {
+      map[value] = i;
+    }
+  }
+};
+```
+
+```js
+/**
+ * @param {number[]} nums
+ * @param {number} target
+ * @return {number[]}
+ */
+
+const twoSum2 = (nums, target) => {
+  let result = {};
+  for (let [index, num] of nums.entries()) {
+    if (result[num] !== undefined) return [result[num], index];
+    result[target - num] = index;
+  }
+};
+```
