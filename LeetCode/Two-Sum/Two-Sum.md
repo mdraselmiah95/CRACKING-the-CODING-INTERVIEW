@@ -40,11 +40,4 @@ const twoSum = (nums, target) => {
     }
   }
 };
-
-const nums = [8, 3, 10, 7, 2, 5, 4];
-const target = 9;
-
-const resultOne = twoSum(nums, target);
-
-output[(3, 4)];
 ```

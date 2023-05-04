@@ -31,3 +31,36 @@ const target = 9;
 const resultOne = twoSum(nums, target);
 
 console.log(resultOne);
+
+/**
+ * Hashmap
+ *
+ * num=[1, 5, 8]
+ * target = 9
+ *
+ * map = { 1:0, 5:1}
+ * i = 2
+ * value = 9
+ * complement_pair = 9 - 8 = 1
+ * [0, 2]
+ */
+
+const twoSum1 = (nums, target) => {
+  const map = [];
+  for (let i = 0; i < nums.length; i++) {
+    const value = nums[i];
+    const pair = target - value;
+    if (map[pair] !== undefined) {
+      return [map[pair], i];
+    } else {
+      map[value] = i;
+    }
+  }
+};
+
+const nums1 = [8, 3, 10, 7, 2, 5, 4];
+const target1 = 9;
+
+const resultTwo = twoSum1(nums, target);
+
+console.log(resultTwo);
