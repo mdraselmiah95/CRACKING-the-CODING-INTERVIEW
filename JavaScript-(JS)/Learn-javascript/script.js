@@ -1,3 +1,3 @@
-// Logical Operators
+// Variable and block scope
 
-// And &&, Or ||, Not !
+// Scope => Area where variable is define or accessible
