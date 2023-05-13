@@ -32,4 +32,40 @@ let ageCalculation = function (birthYear, currentYear = 2023) {
 };
 
 const result = ageCalculation(1995);
-console.log(result);
+// console.log(result);
+
+// Arrow Function (ES6)
+
+const arrowFunc = (name) => `This is my ${name}`;
+
+// Passing function as an argument (Higher order function)
+
+let upperCase = function (str) {
+  return str.toUpperCase();
+};
+
+let lowerCase = function (str) {
+  return str.toLowerCase();
+};
+
+let transform = function (str, fun) {
+  return fun(str);
+};
+
+const result1 = transform("this is Rasel mia", upperCase);
+const result2 = transform("this is Rasel mia", lowerCase);
+// console.log({ result1, result2 });
+
+// Function returning another function
+
+let compliment = function (msg) {
+  return function (name) {
+    console.log(`${msg} ${name}`);
+  };
+};
+
+// compliment("I am good Programer")("rasel");
+
+let complimented = compliment("You are a good coder");
+
+complimented("Rasel");
