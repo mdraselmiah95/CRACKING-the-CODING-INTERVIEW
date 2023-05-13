@@ -68,4 +68,11 @@ let compliment = function (msg) {
 
 let complimented = compliment("You are a good coder");
 
-complimented("Rasel");
+// complimented("Rasel");
+
+// Immediately invoked function Expression  IIFE
+// Executed Only Once
+
+(function (name) {
+  console.log("This function will never executed again", name);
+})("IIFE");
