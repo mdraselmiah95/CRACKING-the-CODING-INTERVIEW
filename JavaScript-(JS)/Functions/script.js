@@ -1,70 +1,39 @@
-// Function vs Method
+"use strict";
+// Function
+// call and apply method
+// we can manually set the value of "this" keyword using "call and apply"
 
-// Method=> it is nothing but object property holding
-// Function as "Value"
-
-const myObject = {
-  name: "John Doe",
-  age: 30,
-  sayHello: function () {
-    alert("Hello, my name is " + this.name);
+let mainPlain = {
+  airline: "Air India",
+  iataCode: "F4",
+  booking: [],
+  book: function (flightName, name) {
+    console.log(
+      `${name} Booked Flight on ${this.airline} with flight Number ${this.iataCode} ${flightName}`
+    );
+    this.booking.push({
+      flight: `${this.airline}`,
+      name: name,
+      flightNumber: `${this.iataCode} ${flightName}`,
+    });
   },
 };
 
-let person = {
-  ageCalculate: function (birthYear = 2000) {
-    let age = 2023 - birthYear;
-    return age;
-  },
+mainPlain.book(530, "Rasel");
+
+mainPlain.book(652, "Ibn Intiaz");
+console.log(mainPlain);
+
+let childPlain = {
+  airline: "Child Plain",
+  iataCode: "CP",
+  booking: [],
 };
 
-// console.log(`Current age is ${person.ageCalculate(1995)}`);
+let book = mainPlain.book;
+book.call(childPlain, 569, "Jack");
 
-// THis keyword
+book.call(mainPlain, 699, "Rose");
 
-// in Each Method we have an access of special keyword called "this"
-
-let Doctor = {
-  firstName: "Rasel",
-  lastName: "Mia",
-  city: "Dhaka",
-  birthYear: 1995,
-  Education: "Software Engineer",
-  getSummery: function () {
-    // return `${this.firstName} ${this.lastName} lives in ${this.city} and born in ${this.birthYear} by education is ${this.Education} `;
-    return this;
-  },
-};
-
-// console.log(Doctor.getSummery());
-
-// forEach method of Array
-
-let dishes = [
-  "Pizza ",
-  "Pizza ",
-  "Paella ",
-  "Pierogi",
-  "Moussaka",
-  "biryani",
-  "naan",
-  "butter chicken",
-];
-
-for (let i = 0; i < dishes.length; i++) {
-  // console.log(dishes[i]);
-}
-
-// dishes.forEach((element) => console.log(element));
-
-const cars = [
-  { make: "Toyota", model: "Camry", year: 2019 },
-  { make: "Honda", model: "Civic", year: 2020 },
-  { make: "Ford", model: "Mustang", year: 2021 },
-];
-
-for (let i = 0; i < cars.length; i++) {
-  console.log(cars[i].make);
-}
-
-cars.forEach((car) => console.log(car));
+book.apply(childPlain, [510, "Tom Hank"]);
+console.log(childPlain);
