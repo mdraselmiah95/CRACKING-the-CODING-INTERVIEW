@@ -1,97 +1,38 @@
-// Array Deceleration
+// Working with array simple method
 
-let person = {
-  name: "rasel",
-  age: 26,
-};
+let letters = ["a", "b", "c", "d", "e"];
 
-let arr = ["apple", "banana", "mango", person];
+let reverse = letters.reverse();
 
-arr.push("orange");
-arr.pop();
+// console.log({ letters });
+// console.log({ reverse });
 
-// console.log(arr);
+let nums = [1, 2, 3, 4, 5];
+let concat = nums.concat(letters);
+// console.log({ concat });
 
-const names = ["rasel", "shakib", "shohan", "noman", "kazol", "rohan"];
+let joined = letters.join("-");
+// console.log({ joined });
 
-for (let i = 0; i < names.length; i++) {
-  const element = names[i];
-  //   console.log(element);
-}
+let newNum = nums.slice(1, 3);
+// console.log({ newNum });
 
-const newName = names.map((name, i, arr) => {
-  return name + i;
-});
+// Splice method
 
-// console.log(newName);
+let numbers = [1, 2, 3, 4, 5];
 
-const numbers = [1, 2, 3, 4, 5, 6];
+let numSplice = numbers.splice(1, 2, "rasel");
+// console.log({ numbers });
+// console.log({ numSplice });
 
-//map in JavaScript
-const newNum = numbers.map((num, i, arr) => {
-  return num + 2;
-});
+// at method
 
-const refileNum = numbers.filter((num) => {
-  return num > 2;
-});
+let number1 = [11, 35, 67, 90, 13];
 
-const sum = numbers.reduce((prev, curr) => {
-  return prev + curr;
-}, 0);
+// console.log(number1[number1.length - 1]);
+// console.log(number1.at(-1));
+// console.log(number1.splice(-1));
 
-const someNum = numbers.some((item) => {
-  return item > 2;
-});
-
-const everyNum = numbers.every((item) => {
-  return item > 3;
-});
-
-const findNum = numbers.find((num) => {
-  return num > 4;
-});
-
-// console.log(findNum);
-
-// Spread and Rest Operators
-const num1 = [1, 2, 3];
-const num2 = [4, 5, 6];
-
-const finalNum = [...num1, ...num2];
-
-function sum1(...numbers) {
-  return numbers;
-}
-// console.log(sum1(num1, num2));
-
-// More Array Methods
-const newArr = num1.concat(num2);
-
-let arr2 = ["apple", "banana", "mango"];
-
-// const newArr2 = arr2.slice(0, 2);
-// const newArr2 = arr2.slice(0, 2);
-// const newArr2 = arr2.splice(2, 1, "sweet");
-// let newFruits = fruits.splice(2, 0, "Lemon", "Kiwi");
-// let newFruits = fruits.fill(0);
-// let newFruits = fruits.findIndex((item) => item === "Orange");
-
-// console.log(arr2);
-
-// console.log(newArr2);
-
-const arr3 = [1, 2, 7, 9, [3, 4, [5, 6]]];
-const flattenArr = arr3.flat(2);
-
-console.log(flattenArr);
-
-const reverseArr = flattenArr.reverse();
-
-const sortedArr = flattenArr.sort((a, b) => {
-  return a - b;
-});
-
-// console.log(sortedArr);
-
-// console.log(reverseArr); 30
+const fruits = ["Banana", "Orange", "Apple", "Mango"];
+let fruit = fruits.at(-1);
+console.log(fruit);
