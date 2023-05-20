@@ -44,4 +44,22 @@ let newSalaries = salaries.map((salary) => {
   return salary + increment;
 });
 
-console.log(newSalaries);
+// console.log({ newSalaries });
+
+const gifts = [
+  "Teddy bear",
+  "Flower bouquet",
+  "Chocolate box",
+  "Perfume",
+  "Jewelry",
+  "Gift card",
+  "Gourmet hamper",
+];
+
+let filteredArray = gifts.filter((gift) => {
+  if (gift === "Teddy" || gift === "Perfume") {
+    return gift;
+  }
+});
+
+console.log({ filteredArray });
