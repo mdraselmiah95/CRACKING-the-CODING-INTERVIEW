@@ -35,4 +35,13 @@ let number1 = [11, 35, 67, 90, 13];
 
 const fruits = ["Banana", "Orange", "Apple", "Mango"];
 let fruit = fruits.at(-1);
-console.log(fruit);
+// console.log(fruit);
+
+const salaries = [3000, 5000, 2700, 8900, 9900];
+
+let newSalaries = salaries.map((salary) => {
+  const increment = salary / 2;
+  return salary + increment;
+});
+
+console.log(newSalaries);
