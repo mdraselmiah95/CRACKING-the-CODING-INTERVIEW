@@ -1,17 +1,17 @@
 // Working with array simple method
 
-let letters = ["a", "b", "c", "d", "e"];
+let letter = ["a", "b", "c", "d", "e"];
 
-let reverse = letters.reverse();
+let reverse = letter.reverse();
 
 // console.log({ letters });
 // console.log({ reverse });
 
 let nums = [1, 2, 3, 4, 5];
-let concat = nums.concat(letters);
+let concat = nums.concat(letter);
 // console.log({ concat });
 
-let joined = letters.join("-");
+let joined = letter.join("-");
 // console.log({ joined });
 
 let newNum = nums.slice(1, 3);
@@ -62,4 +62,24 @@ let filteredArray = gifts.filter((gift) => {
   }
 });
 
-console.log({ filteredArray });
+// console.log({ filteredArray });
+
+// Working with array
+
+const letters = ["a", "b", "c", "d", "e", "x", "p", "z", "l"];
+const number = [7, 2, 9, 4, 6, -4, 1, 3];
+
+console.log(letters.sort());
+
+// console.log(number.sort());
+
+const numNum = number.sort((a, b) => {
+  return a - b;
+  // return b - a;
+});
+
+// console.log(numNum);
+
+const num = [1, 2, 3, 4, 5, 6, 7];
+
+let result = num.slice(0, 3);
