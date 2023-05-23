@@ -17,6 +17,8 @@ let vehicles = [
 ];
 
 let stringifyVehicle = JSON.stringify(vehicles);
-localStorage.setItem("vehicles", stringifyVehicle);
+localStorage.setItem("vehicle", stringifyVehicle);
 
-console.log(localStorage);
+let storeData = localStorage.getItem("vehicle");
+let objectFormate = JSON.parse(storeData);
+console.log(objectFormate);
