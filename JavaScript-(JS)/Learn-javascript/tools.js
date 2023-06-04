@@ -37,4 +37,22 @@ resultIIFE.addToCart("Eggs", 13);
 resultIIFE.addToCart("Tomatoes", 10);
 resultIIFE.addToCart("bananas", 24);
 
-console.log(resultIIFE.orders);
+// console.log(resultIIFE.orders);
+
+// closures
+
+let counter = function () {
+  let count = 0;
+  let innerCounter = function () {
+    return (count += 1);
+  };
+
+  return innerCounter;
+};
+
+let innerCounter = counter();
+console.log(innerCounter());
+console.log(innerCounter());
+console.log(innerCounter());
+
+// Closure does not make separate copy of outer variable
