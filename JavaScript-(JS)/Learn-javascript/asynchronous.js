@@ -78,6 +78,13 @@ let topHotel = {
 
 // let { name: hotelName, Location: hotelLocation, mainMenu: menu } = topHotel;
 
-let { name, Menu = (newMenu = []), categories = [] } = topHotel;
+// let { name, Menu = (newMenu = []), categories = [] } = topHotel;
 
-console.log({ newMenu });
+let { name, openingHours } = topHotel;
+// console.log(name, openingHours);
+
+let {
+  sunday: { open, close },
+} = openingHours;
+
+// console.log(open, close);
