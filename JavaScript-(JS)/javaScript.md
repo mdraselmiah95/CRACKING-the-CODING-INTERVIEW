@@ -402,3 +402,16 @@ let strAdder2 = initAddString("text2", "text-output2");
 ```
 
 ## IIFE - Immediately Invoked Function Expression
+
+- this practice was popular due to var.
+- Immediately invoking a function avoids - re-declaration of variables inside it
+
+```js
+// Immediately invoked function expressions
+
+(function () {
+  var x = 1; // this var is now protected
+})()(function (a) {
+  var x = a; // this var is now protected
+})(2);
+```
