@@ -57,3 +57,7 @@ testTwo();
 */
 
 // Declaration of variable
+
+setInterval(() => {
+  console.log("99");
+}, 1000);

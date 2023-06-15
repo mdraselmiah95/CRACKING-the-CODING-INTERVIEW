@@ -415,3 +415,47 @@ let strAdder2 = initAddString("text2", "text-output2");
   var x = a; // this var is now protected
 })(2);
 ```
+
+## Currying
+
+```js
+function sum(a) {
+  return function (b) {
+    return function (c) {
+      console.log(a, b, c);
+      return a + b + c;
+    };
+  };
+}
+
+let add = (a) => (b) => (c) => a + b + c;
+
+let log = (time) => (type) => (msg) =>
+  `At ${time.toLocaleString()}: severity ${type} => ${msg}`;
+
+log(new Date())("error")("power not sufficient");
+
+let logNow = log(new Date());
+
+logNow("warning")("temp high");
+
+let logErrorNow = log(new Date())("error");
+
+logErrorNow("unknown error");
+
+function op(operation) {
+  return function (a) {
+    return function (b) {
+      return operation === "add" ? a + b : a - b;
+    };
+  };
+}
+
+const add3 = op("add")(3);
+const sub3 = op("sub")(3);
+const add = op("add");
+
+add3(6);
+sub3(6);
+add(1)(2);
+```
