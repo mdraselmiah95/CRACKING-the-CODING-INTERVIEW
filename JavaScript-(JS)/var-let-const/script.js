@@ -30,10 +30,34 @@ function abc() {
   say();
 }
 
-for (let i = 0; i < 5; i++) {
-  setTimeout(() => console.log(i), 1000);
-} // prints 0,1,2,3,4
+// for (let i = 0; i < 5; i++) {
+//   setTimeout(() => console.log(i), 1000);
+// } // prints 0,1,2,3,4
 
-for (var i = 0; i < 5; i++) {
-  setTimeout(() => console.log(i), 1000);
-} // prints 5,5,5,5,5
+// for (var i = 0; i < 5; i++) {
+//   setTimeout(() => console.log(i), 1000);
+// } // prints 5,5,5,5,5
+
+// function x() {
+//   let a = 10;
+//   return function y() {
+//     console.log(a);
+//   };
+// }
+
+// const z = x();
+// console.log(z);
+// z();
+
+function z() {
+  let b = 100;
+  function x() {
+    let a = 101;
+    function y() {
+      console.log(a, b);
+    }
+    y();
+  }
+  x();
+}
+z();
