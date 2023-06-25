@@ -12,7 +12,11 @@ const count = document.querySelector(".increment_count");
 let pressedCount = 0;
 let triggerCount = 0;
 
+const start = new Date().getTime();
+
 const throttledCount = _.throttle(() => {
+  const now = new Date().getTime();
+  console.log(now - start);
   count.innerHTML = ++triggerCount;
 }, 800);
 
