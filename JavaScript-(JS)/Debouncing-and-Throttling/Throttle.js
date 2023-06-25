@@ -9,6 +9,7 @@ const btn = document.querySelector(".increment_btn");
 const btnPress = document.querySelector(".increment_pressed");
 const count = document.querySelector(".increment_count");
 
+/*
 let pressedCount = 0;
 let triggerCount = 0;
 
@@ -23,4 +24,34 @@ const throttledCount = _.throttle(() => {
 btn.addEventListener("click", () => {
   btnPress.innerHTML = ++pressedCount;
   throttledCount();
+});
+*/
+
+/**
+ * Debouncing and Throttling
+ * Ques 3 - Create Throttle() PolyFill Implementation
+ */
+
+let pressedCount = 0;
+let triggerCount = 0;
+
+const myThrottle = (cb, d) => {
+  let last = 0;
+
+  return function (...args) {
+    let now = new Date().getTime();
+    if (now - last < d) return;
+    last = now;
+    return cb(...args);
+  };
+};
+
+const throttled = myThrottle(() => {
+  triggerCount += 1;
+  count.innerHTML = triggerCount;
+}, 1000);
+
+btn.addEventListener("click", () => {
+  btnPress.innerHTML = ++pressedCount;
+  throttled();
 });
