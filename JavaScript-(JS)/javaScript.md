@@ -459,3 +459,20 @@ add3(6);
 sub3(6);
 add(1)(2);
 ```
+
+## Objects
+
+### Basic behaviors
+
+### Reference Copying
+
+- Variable value is not copied in case of object/arrays
+- it a better to use const always, and whenever you must need to re-assign change it ot let
+
+```js
+let person = { name: "john" };
+let human = person;
+
+let person = { name: "john" }; // Object1
+person = { name: "wick" }; // Object2
+```
