@@ -476,3 +476,79 @@ let human = person;
 let person = { name: "john" }; // Object1
 person = { name: "wick" }; // Object2
 ```
+
+### Nested Objects
+
+```js
+let person = {
+  name: "John",
+  address: { city: "delhi", state: "delhi" },
+};
+
+let addressObject = { city: "delhi", state: "delhi" };
+
+let person = {
+  name: "John",
+  address: addressObject,
+};
+```
+
+### Copying objects
+
+- But problem which these is they just create a copy of properties of that object , but not creating a copy of their references also.
+
+```js
+- Object.assign()
+
+let person =  {name:'john'}
+let newPerson = Object.assign({}, person)
+
+- Spread Operator[...]
+
+let person =  {name:'john'}
+let newPerson = {...person}
+
+
+let addressObject = { city: 'delhi', state: 'delhi' }
+
+let person = {
+  name: 'John',
+  address: addressObject
+};
+
+
+let newPerson = Object.assign({}, person)
+person === newPerson;  // false
+person.address === newPerson.address // true
+```
+
+### Deep Copy
+
+- This is a hard problem to solve in past as there can be multiple level of nested objects and there can be references to functions etc also. few methods which are there:
+
+- JSON.stringify and JSON.parse : this method utilizes the fact that every JSON can be converted to a string value (exception of methods/functions)
+
+- structuredClone : Browser API which work even for circular references (but functions not supported)
+
+```js
+let addressObject = { city: "delhi", state: "delhi" };
+
+let person = {
+  name: "John",
+  address: addressObject,
+};
+
+let str = JSON.stringify(person);
+let jsonObject = JSON.parse(str);
+
+let addressObject = { city: "delhi", state: "delhi" };
+
+let person = {
+  name: "John",
+  address: addressObject,
+};
+
+person.me = person;
+
+let newPerson = structuredClone(person);
+```
